@@ -41,17 +41,33 @@ final class PlaybackViewModel: ObservableObject {
     }
     
     func fetchRecordings() {
-        Task {
+        Task { @MainActor in
             let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             do {
                 let directoryContents = try FileManager.default.contentsOfDirectory(at: documentPath, includingPropertiesForKeys: [.creationDateKey])
                 let m4aFiles = directoryContents.filter { $0.pathExtension == "m4a" }
                 var fetchedNotes: [VoiceNote] = []
                 
+                let outputFormatter = DateFormatter()
+                outputFormatter.dateFormat = "MMM d, h:mm a"
+                
                 for url in m4aFiles {
                     let attributes = try? FileManager.default.attributesOfItem(atPath: url.path)
                     let creationDate = attributes?[.creationDate] as? Date ?? Date()
                     let fileName = url.lastPathComponent
+                    
+                    let rawName = url.deletingPathExtension().lastPathComponent
+                    let cleanTitle: String = {
+                        let dateString = rawName.replacingOccurrences(of: "Recording - ", with: "")
+                        let parser = DateFormatter()
+                        parser.dateFormat = "yyyy-MM-dd-HH-mm-ss"
+                        
+                        if let date = parser.date(from: dateString) {
+                            return "Recording - \(outputFormatter.string(from: date))"
+                        }
+                        return rawName
+                    }()
+                    
                     let audioAsset = AVURLAsset(url: url)
                     var audioDuration: TimeInterval = 0
                     
@@ -67,15 +83,18 @@ final class PlaybackViewModel: ObservableObject {
                         id: UUID(),
                         url: url,
                         createdAt: creationDate,
-                        title: url.deletingPathExtension().lastPathComponent,
+                        title: cleanTitle,
                         duration: audioDuration.isNaN ? 0 : audioDuration,
                         isStarred: starredNoteNames.contains(fileName)
                     )
+                    
                     fetchedNotes.append(note)
                 }
                 
                 self.savedNotes = fetchedNotes.sorted(by: { $0.createdAt > $1.createdAt })
-            } catch { }
+                
+            } catch {
+            }
         }
     }
     

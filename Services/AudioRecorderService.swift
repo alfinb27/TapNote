@@ -53,9 +53,11 @@ final class AudioRecorderService: NSObject, ObservableObject {
             try session.setActive(true)
             
             let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MMM d, h:mm a"
-            let fileName = "Recording - \(formatter.string(from: Date())).m4a"
+            
+            let fileFormatter = DateFormatter()
+            fileFormatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
+            let fileName = "Recording - \(fileFormatter.string(from: Date())).m4a"
+            
             currentFileURL = documentPath.appendingPathComponent(fileName)
             
             let settings: [String: Any] = [
