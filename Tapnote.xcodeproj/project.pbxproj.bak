@@ -65,9 +65,9 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		B3C5B2982FD9C4A500E2919C /* Views */ = {
+		B3C5B2982FD9C4A500E2919C /* Screens */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Views;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -102,9 +102,9 @@
 			children = (
 				B3C5B2592FD9B9CA00E2919C /* App */,
 				B3C5B2852FD9C1B800E2919C /* Models */,
-				B3C5B28A2FD9C31C00E2919C /* Services */,
 				B3C5B2912FD9C38500E2919C /* ViewModels */,
-				B3C5B2982FD9C4A500E2919C /* Views */,
+				B3C5B2982FD9C4A500E2919C /* Screens */,
+				B3C5B28A2FD9C31C00E2919C /* Services */,
 				B3C5B2602FD9B9CC00E2919C /* Assets.xcassets */,
 				B3C5B2692FD9B9CC00E2919C /* TapnoteTests */,
 				B3C5B2732FD9B9CC00E2919C /* TapnoteUITests */,
@@ -142,7 +142,7 @@
 				B3C5B2852FD9C1B800E2919C /* Models */,
 				B3C5B28A2FD9C31C00E2919C /* Services */,
 				B3C5B2912FD9C38500E2919C /* ViewModels */,
-				B3C5B2982FD9C4A500E2919C /* Views */,
+				B3C5B2982FD9C4A500E2919C /* Screens */,
 			);
 			name = Tapnote;
 			packageProductDependencies = (
@@ -436,7 +436,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Tapnote-Info.plist";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app needs access to your microphone to record audio notes.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Tapnote needs microphone access to record voice notes";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -447,7 +447,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -483,7 +482,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Tapnote-Info.plist";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app needs access to your microphone to record audio notes.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Tapnote needs microphone access to record voice notes";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -494,7 +493,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
